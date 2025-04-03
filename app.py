@@ -44,41 +44,158 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
-    .main {
-        background-color: #f0f2f6;
+    /* Main theme colors */
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --success-color: #2ecc71;
+        --warning-color: #f1c40f;
+        --background-color: #f8f9fa;
+        --card-background: #ffffff;
+        --text-primary: #2c3e50;
+        --text-secondary: #7f8c8d;
     }
+
+    /* Main container */
+    .main {
+        background-color: var(--background-color);
+    }
+
+    /* Title styling */
+    .main .block-container {
+        padding-top: 2rem;
+    }
+    
+    /* Sidebar styling */
+    .css-1d391kg {
+        background-color: var(--primary-color);
+        padding: 2rem 1rem;
+    }
+    
+    .css-1d391kg .sidebar-content {
+        color: white;
+    }
+    
+    /* Button styling */
     .stButton>button {
         width: 100%;
         margin-top: 10px;
-        background-color: #1f77b4;
+        background-color: var(--secondary-color);
         color: white;
         border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-    .stButton>button:hover {
-        background-color: #2c8ac0;
-    }
-    .metric-card {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        margin: 10px 0;
-    }
-    .signal-card {
-        background-color: #f8f9fa;
-        padding: 15px;
+        padding: 12px 24px;
         border-radius: 8px;
-        margin: 10px 0;
-        border-left: 4px solid #1f77b4;
+        font-weight: 600;
+        transition: all 0.3s ease;
     }
+    
+    .stButton>button:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Metric cards */
+    .metric-card {
+        background-color: var(--card-background);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        margin: 1rem 0;
+        transition: transform 0.3s ease;
+    }
+
+    .metric-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .metric-card h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--primary-color);
+    }
+
+    .metric-card p {
+        margin: 0.5rem 0 0;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+
+    /* Signal cards */
+    .signal-card {
+        background-color: var(--card-background);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        border-left: 4px solid var(--secondary-color);
+        transition: all 0.3s ease;
+    }
+
+    .signal-card:hover {
+        transform: translateX(5px);
+    }
+
     .signal-card.long {
-        border-left-color: #28a745;
+        border-left-color: var(--success-color);
     }
+
     .signal-card.short {
-        border-left-color: #dc3545;
+        border-left-color: var(--accent-color);
+    }
+
+    .signal-card h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .signal-card ul {
+        margin: 0.5rem 0 0;
+        padding-left: 1.5rem;
+    }
+
+    .signal-card li {
+        color: var(--text-secondary);
+        margin: 0.3rem 0;
+    }
+
+    /* Chart containers */
+    .stPlotlyChart {
+        background-color: var(--card-background);
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        margin: 1rem 0;
+    }
+
+    /* Section headers */
+    .section-header {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 2rem 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--secondary-color);
+    }
+
+    /* Status indicators */
+    .status-indicator {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .status-active {
+        background-color: var(--success-color);
+    }
+
+    .status-inactive {
+        background-color: var(--accent-color);
     }
     </style>
 """, unsafe_allow_html=True)
@@ -218,26 +335,41 @@ def main():
     
     # Sidebar
     with st.sidebar:
-        st.header("Settings")
+        st.markdown("""
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="color: white; margin-bottom: 0.5rem;">BTC Trading Bot</h2>
+                <p style="color: #bdc3c7; font-size: 0.9rem;">Real-time Analysis & Signals</p>
+            </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("### Settings")
         update_interval = st.slider("Update Interval (seconds)", 10, 300, 60)
         show_indicators = st.multiselect(
             "Show Indicators",
             ["RSI", "MACD", "Bollinger Bands", "Moving Averages", "Stochastic"],
             default=["RSI", "MACD", "Bollinger Bands"]
         )
-        st.markdown("---")
-        st.markdown("### About")
-        st.markdown("""
-        This dashboard provides real-time BTC price monitoring and trading signals based on technical analysis.
         
-        **Features:**
-        - Real-time price updates
-        - Technical indicators
-        - Trading signals
-        - Interactive charts
-        """)
+        st.markdown("---")
+        st.markdown("""
+            <div style="color: white;">
+                <h3 style="color: white;">About</h3>
+                <p style="color: #bdc3c7; font-size: 0.9rem;">
+                    This dashboard provides real-time BTC price monitoring and trading signals based on technical analysis.
+                </p>
+                <h4 style="color: white; margin-top: 1rem;">Features:</h4>
+                <ul style="color: #bdc3c7; font-size: 0.9rem;">
+                    <li>Real-time price updates</li>
+                    <li>Technical indicators</li>
+                    <li>Trading signals</li>
+                    <li>Interactive charts</li>
+                </ul>
+            </div>
+        """, unsafe_allow_html=True)
     
     # Main content
+    st.markdown('<h2 class="section-header">Market Overview</h2>', unsafe_allow_html=True)
+    
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -246,8 +378,8 @@ def main():
         if current_price:
             st.markdown(f"""
             <div class="metric-card">
-                <h2 style="color: #1f77b4;">${current_price:,.2f}</h2>
-                <p style="color: #666;">BTC/USD</p>
+                <h2>${current_price:,.2f}</h2>
+                <p>BTC/USD</p>
             </div>
             """, unsafe_allow_html=True)
     
@@ -258,11 +390,11 @@ def main():
             hist = btc.history(period="1d")
             if not hist.empty:
                 change = ((current_price - hist['Close'].iloc[0]) / hist['Close'].iloc[0]) * 100
-                color = "green" if change >= 0 else "red"
+                color = "var(--success-color)" if change >= 0 else "var(--accent-color)"
                 st.markdown(f"""
                 <div class="metric-card">
                     <h2 style="color: {color};">{change:+.2f}%</h2>
-                    <p style="color: #666;">24h Change</p>
+                    <p>24h Change</p>
                 </div>
                 """, unsafe_allow_html=True)
     
@@ -271,13 +403,13 @@ def main():
         current_time = datetime.now().strftime("%H:%M:%S")
         st.markdown(f"""
         <div class="metric-card">
-            <h2 style="color: #1f77b4;">{current_time}</h2>
-            <p style="color: #666;">Last Price Update</p>
+            <h2>{current_time}</h2>
+            <p>Last Price Update</p>
         </div>
         """, unsafe_allow_html=True)
     
     # Trading Signals
-    st.markdown("### Trading Signals")
+    st.markdown('<h2 class="section-header">Trading Signals</h2>', unsafe_allow_html=True)
     if current_price:
         btc = yf.Ticker("BTC-USD")
         df = btc.history(period="1d", interval="1m")
@@ -285,25 +417,25 @@ def main():
         signals = check_signals(df)
         
         signal_color = {
-            "LONG": "#28a745",
-            "SHORT": "#dc3545",
-            "NEUTRAL": "#6c757d"
+            "LONG": "var(--success-color)",
+            "SHORT": "var(--accent-color)",
+            "NEUTRAL": "var(--text-secondary)"
         }
         
         st.markdown(f"""
         <div class="signal-card {signals['signal_type'].lower()}">
-            <h3 style="color: {signal_color[signals['signal_type']]}; margin: 0;">{signals['signal_type']} Signal</h3>
-            <p style="margin: 5px 0;">Signal Strength: {signals['signal_strength']:.1f}%</p>
-            <p style="margin: 5px 0;">Current Price: ${signals['current_price']:,.2f}</p>
-            <p style="margin: 5px 0;">Reasons:</p>
-            <ul style="margin: 5px 0; padding-left: 20px;">
+            <h3 style="color: {signal_color[signals['signal_type']]};">{signals['signal_type']} Signal</h3>
+            <p style="margin: 0.5rem 0;">Signal Strength: {signals['signal_strength']:.1f}%</p>
+            <p style="margin: 0.5rem 0;">Current Price: ${signals['current_price']:,.2f}</p>
+            <p style="margin: 0.5rem 0;">Reasons:</p>
+            <ul>
                 {''.join([f'<li>{reason}</li>' for reason in signals['reasons']])}
             </ul>
         </div>
         """, unsafe_allow_html=True)
     
     # Charts
-    st.markdown("### Price Charts")
+    st.markdown('<h2 class="section-header">Technical Analysis</h2>', unsafe_allow_html=True)
     if current_price:
         btc = yf.Ticker("BTC-USD")
         df = btc.history(period="1d", interval="1m")
@@ -316,7 +448,9 @@ def main():
             high=df['High'],
             low=df['Low'],
             close=df['Close'],
-            name='BTC/USD'
+            name='BTC/USD',
+            increasing_line_color='#2ecc71',
+            decreasing_line_color='#e74c3c'
         ))
         
         if "Bollinger Bands" in show_indicators:
@@ -324,20 +458,23 @@ def main():
                 x=df.index,
                 y=df['BB_Upper'],
                 name='BB Upper',
-                line=dict(color='gray', dash='dash')
+                line=dict(color='#95a5a6', dash='dash')
             ))
             fig.add_trace(go.Scatter(
                 x=df.index,
                 y=df['BB_Lower'],
                 name='BB Lower',
-                line=dict(color='gray', dash='dash')
+                line=dict(color='#95a5a6', dash='dash')
             ))
         
         fig.update_layout(
             title='BTC/USD Price',
             yaxis_title='Price (USD)',
             template='plotly_white',
-            height=400
+            height=400,
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font=dict(color='#2c3e50')
         )
         st.plotly_chart(fig, use_container_width=True)
         
@@ -350,30 +487,33 @@ def main():
                     x=df.index,
                     y=df['RSI'],
                     name='RSI',
-                    line=dict(color='blue')
+                    line=dict(color='#3498db')
                 ))
-                fig.add_hline(y=RSI_OVERBOUGHT, line_dash="dash", line_color="red")
-                fig.add_hline(y=RSI_OVERSOLD, line_dash="dash", line_color="green")
+                fig.add_hline(y=RSI_OVERBOUGHT, line_dash="dash", line_color="#e74c3c")
+                fig.add_hline(y=RSI_OVERSOLD, line_dash="dash", line_color="#2ecc71")
             
             if "MACD" in show_indicators:
                 fig.add_trace(go.Scatter(
                     x=df.index,
                     y=df['MACD'],
                     name='MACD',
-                    line=dict(color='blue')
+                    line=dict(color='#3498db')
                 ))
                 fig.add_trace(go.Scatter(
                     x=df.index,
                     y=df['MACD_Signal'],
                     name='Signal',
-                    line=dict(color='orange')
+                    line=dict(color='#e67e22')
                 ))
             
             fig.update_layout(
                 title='Technical Indicators',
                 yaxis_title='Value',
                 template='plotly_white',
-                height=300
+                height=300,
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
+                font=dict(color='#2c3e50')
             )
             st.plotly_chart(fig, use_container_width=True)
     
