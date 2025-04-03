@@ -1,0 +1,147 @@
+2025-04-03 12:25:00,325 - ERROR - Setup failed: 'hyperliquid' object has no attribute 'fapiPrivate_post_leverage'
+2025-04-03 12:25:00,325 - ERROR - Failed to initialize trading bot
+2025-04-03 12:25:36,199 - ERROR - API request failed: Exchange.request() got an unexpected keyword argument 'data'
+2025-04-03 12:25:36,200 - ERROR - API request failed: Exchange.request() got an unexpected keyword argument 'data'
+2025-04-03 12:25:36,200 - ERROR - Setup failed: 'NoneType' object has no attribute 'get'
+2025-04-03 12:25:36,200 - ERROR - Failed to initialize trading bot
+2025-04-03 12:26:51,269 - ERROR - API request failed: 422 Client Error: Unprocessable Entity for url: https://api.hyperliquid.xyz/exchange
+2025-04-03 12:26:51,270 - ERROR - Failed to set leverage
+2025-04-03 12:26:51,270 - ERROR - Failed to initialize trading bot
+2025-04-03 12:28:25,679 - ERROR - API request failed: 422 Client Error: Unprocessable Entity for url: https://api.hyperliquid.xyz/info
+2025-04-03 12:28:25,680 - WARNING - Could not get initial balance, setting to default value
+2025-04-03 12:28:25,680 - INFO - Initial balance: 1000.00 USDT
+2025-04-03 12:28:25,680 - INFO - Maximum daily loss: 50.00 USDT
+2025-04-03 12:28:25,680 - INFO - Maximum drawdown: 100.00 USDT
+2025-04-03 12:28:25,680 - INFO - Current BTC price: 82183.50 USDT
+2025-04-03 12:28:25,680 - INFO - Starting trading bot...
+2025-04-03 12:28:26,216 - INFO - Current BTC price: 82183.5
+2025-04-03 12:29:26,800 - INFO - Current BTC price: 82281.5
+2025-04-03 12:33:03,542 - ERROR - API request failed: 422 Client Error: Unprocessable Entity for url: https://api.hyperliquid.xyz/info
+2025-04-03 12:33:03,543 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 12:33:03,543 - ERROR - Failed to initialize trading bot
+2025-04-03 12:33:16,555 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 12:33:16,555 - ERROR - Failed to initialize trading bot
+2025-04-03 13:20:36,986 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 13:20:36,988 - ERROR - Failed to initialize trading bot
+2025-04-03 13:21:26,347 - ERROR - API request failed: 422 Client Error: Unprocessable Entity for url: https://api.hyperliquid.xyz/info
+2025-04-03 13:21:26,348 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 13:21:26,348 - ERROR - Failed to initialize trading bot
+2025-04-03 13:21:54,521 - ERROR - API request failed: 422 Client Error: Unprocessable Entity for url: https://api.hyperliquid.xyz/info
+2025-04-03 13:21:54,523 - WARNING - Could not get wallet balance
+2025-04-03 13:21:54,524 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 13:21:54,524 - ERROR - Failed to initialize trading bot
+2025-04-03 13:23:34,667 - ERROR - Invalid request format: {'type': 'userState', 'user': '0x65FfeCA93dD5a2c9545cE5AdEF0251241EEF6e80'}
+2025-04-03 13:23:34,667 - WARNING - Could not get wallet balance
+2025-04-03 13:23:34,667 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 13:23:34,667 - ERROR - Failed to initialize trading bot
+2025-04-03 13:26:28,046 - ERROR - API request failed: 422 - Failed to deserialize the JSON body into the target type
+2025-04-03 13:26:28,047 - WARNING - Could not get wallet balance
+2025-04-03 13:26:28,047 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 13:26:28,047 - ERROR - Failed to initialize trading bot
+2025-04-03 13:27:00,301 - ERROR - API request failed: 422 - Failed to deserialize the JSON body into the target type
+2025-04-03 13:27:00,302 - WARNING - Could not get wallet balance
+2025-04-03 13:27:00,302 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 13:27:00,302 - ERROR - Failed to initialize trading bot
+2025-04-03 13:28:09,628 - ERROR - API request failed: 422 - Failed to deserialize the JSON body into the target type
+2025-04-03 13:28:09,629 - WARNING - Empty or invalid response from API
+2025-04-03 13:28:09,629 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 13:28:09,629 - ERROR - Failed to initialize trading bot
+2025-04-03 13:29:19,472 - ERROR - API request failed: 422 - Failed to deserialize the JSON body into the target type
+2025-04-03 13:29:19,473 - WARNING - Empty or invalid response from API
+2025-04-03 13:29:19,473 - ERROR - Failed to get wallet balance. Please check if your wallet has sufficient funds.
+2025-04-03 13:29:19,473 - ERROR - Failed to initialize trading bot
+2025-04-03 13:30:16,003 - INFO - Starting trading signal alerts...
+2025-04-03 13:30:16,723 - INFO - Current BTC price: $81,757.00
+2025-04-03 13:31:17,574 - INFO - Current BTC price: $81,675.00
+2025-04-03 13:32:18,311 - INFO - Current BTC price: $81,607.00
+2025-04-03 13:37:39,799 - INFO - Starting trading signal alerts...
+2025-04-03 13:37:40,972 - INFO - Current BTC price: $81,825.00
+2025-04-03 13:38:41,705 - INFO - Current BTC price: $81,938.00
+2025-04-03 13:52:24,818 - ERROR - Request error: HTTPSConnectionPool(host='api.hyperliquid.xyz', port=443): Max retries exceeded with url: /info (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11500bc50>: Failed to resolve 'api.hyperliquid.xyz' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-04-03 14:01:49,965 - ERROR - Request error: HTTPSConnectionPool(host='api.hyperliquid.xyz', port=443): Max retries exceeded with url: /info (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x1150311f0>: Failed to resolve 'api.hyperliquid.xyz' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-04-03 16:53:30,003 - INFO - Starting trading signal alerts...
+2025-04-03 16:53:31,462 - INFO - Current BTC price: $82,211.00
+2025-04-03 16:53:56,417 - INFO - Starting trading signal alerts...
+2025-04-03 16:53:57,660 - INFO - Current BTC price: $82,260.00
+2025-04-03 16:54:32,831 - INFO - Current BTC price: $82,367.00
+2025-04-03 16:55:34,263 - INFO - Current BTC price: $82,379.00
+2025-04-03 16:56:35,615 - INFO - Current BTC price: $82,376.00
+2025-04-03 16:57:37,127 - INFO - Current BTC price: $82,297.00
+2025-04-03 16:58:25,731 - INFO - Starting trading signal alerts...
+2025-04-03 16:58:27,033 - ERROR - Error sending test signal: unsupported format string passed to tuple.__format__
+2025-04-03 16:58:27,815 - INFO - Current BTC price: $82,286.00
+2025-04-03 16:58:38,544 - INFO - Current BTC price: $82,281.00
+2025-04-03 16:59:39,958 - INFO - Current BTC price: $82,260.00
+2025-04-03 16:59:57,290 - INFO - Starting trading signal alerts...
+2025-04-03 16:59:58,579 - INFO - 🔔 <b>TEST SIGNAL ALERT</b> 🔔
+
+💡 <b>Summary:</b> Consider a long position at $82,306.00 because multiple indicators show oversold conditions with strong bullish momentum
+
+Signal Strength: 75%
+Current BTC Price: $82,306.00
+
+<b>Technical Indicators:</b>
+RSI: 28.50
+MACD: 150.25
+MACD Signal: 120.75
+BB Upper: $84,500.00
+BB Lower: $81,200.00
+SMA20: $82,100.00
+SMA50: $81,800.00
+Stoch K: 25.30
+Stoch D: 20.15
+
+<b>Signal Reasons:</b>
+• RSI oversold (28.50)
+• MACD bullish crossover
+• Price below lower BB
+• Golden cross (SMA20 > SMA50)
+• Stochastic oversold
+
+<b>Suggested Action:</b> Consider opening a LONG position
+----------------------------------------
+2025-04-03 16:59:59,823 - INFO - Current BTC price: $82,307.00
+2025-04-03 17:00:41,324 - INFO - Current BTC price: $82,359.00
+2025-04-03 17:01:42,732 - INFO - Current BTC price: $82,305.00
+2025-04-03 17:02:09,223 - INFO - Starting trading signal alerts...
+2025-04-03 17:02:10,519 - INFO - 🔔 <b>TEST SIGNAL ALERT</b> 🔔
+
+💡 <b>Summary:</b> Consider a long position at $82,300.00 because multiple indicators show oversold conditions with strong bullish momentum
+
+Signal Strength: 75%
+Current BTC Price: $82,300.00
+
+<b>Technical Indicators:</b>
+RSI: 28.50
+MACD: 150.25
+MACD Signal: 120.75
+BB Upper: $84,500.00
+BB Lower: $81,200.00
+SMA20: $82,100.00
+SMA50: $81,800.00
+Stoch K: 25.30
+Stoch D: 20.15
+
+<b>Signal Reasons:</b>
+• RSI oversold (28.50)
+• MACD bullish crossover
+• Price below lower BB
+• Golden cross (SMA20 > SMA50)
+• Stochastic oversold
+
+<b>Suggested Action:</b> Consider opening a LONG position
+----------------------------------------
+2025-04-03 17:02:11,964 - INFO - Current BTC price: $82,322.00
+2025-04-03 17:02:44,115 - INFO - Current BTC price: $82,329.00
+2025-04-03 17:03:45,580 - INFO - Current BTC price: $82,328.00
+2025-04-03 17:04:46,960 - INFO - Current BTC price: $82,324.00
+2025-04-03 17:05:48,374 - INFO - Current BTC price: $82,306.00
+2025-04-03 17:06:49,722 - INFO - Current BTC price: $82,495.00
+2025-04-03 17:07:51,289 - INFO - Current BTC price: $82,498.00
+2025-04-03 17:08:52,644 - INFO - Current BTC price: $82,510.00
+2025-04-03 17:09:54,248 - INFO - Current BTC price: $82,511.00
+2025-04-03 17:10:55,656 - INFO - Current BTC price: $82,492.00
+2025-04-03 17:11:57,050 - INFO - Current BTC price: $82,481.00
+2025-04-03 17:12:58,606 - INFO - Current BTC price: $82,492.00
+2025-04-03 17:14:00,026 - INFO - Current BTC price: $82,464.00
+2025-04-03 17:15:01,540 - INFO - Current BTC price: $82,476.00
